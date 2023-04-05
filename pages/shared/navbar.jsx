@@ -1,3 +1,4 @@
+import { useRouter } from "next/router";
 import React from "react";
 import {
   Link,
@@ -7,15 +8,9 @@ import {
   animateScroll as scroll,
   scrollSpy,
   scroller,
-} from "react-scroll";
+} from "react-scroll/modules";
 const Navbar = () => {
-  const scrollTo = () => {
-    scroller.scrollTo("scroll-to-element", {
-      duration: 800,
-      delay: 0,
-      smooth: "easeInOutQuart",
-    });
-  };
+  const router = useRouter();
   return (
     <div className="navbar bg-primary fixed z-[1000]">
       <div className="navbar-start">
@@ -41,6 +36,16 @@ const Navbar = () => {
             onClick={() => scrollTo()}
             className="menu menu-compact dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-52"
           >
+            <Link
+              to="test"
+              className="btn btn-primary normal-case text-white"
+              spy={true}
+              smooth={true}
+              offset={-100}
+              duration={500}
+            >
+              Categories
+            </Link>
             <li>
               <a>Item 1</a>
             </li>
@@ -71,11 +76,26 @@ const Navbar = () => {
             </li>
           </ul>
         </div>
-        <a className="btn btn-ghost normal-case text-xl">Dokan-App</a>
+        <a
+          className="btn btn-ghost normal-case text-xl"
+          onClick={() => router.push(`/`)}
+        >
+          Dokan-App
+        </a>
       </div>
       <div className="navbar-center hidden lg:flex">
         <ul className="menu menu-horizontal px-1">
-          <li to="anchor" spy={true} smooth={true} duration={500}>
+          <Link
+            to="test"
+            className="btn btn-primary normal-case text-white"
+            spy={true}
+            smooth={true}
+            offset={-100}
+            duration={500}
+          >
+            Categories
+          </Link>
+          <li to="anchor" spy={true} smooth={true} duration={5000}>
             <a>Item 1</a>
           </li>
           <li tabIndex={0}>
@@ -91,7 +111,7 @@ const Navbar = () => {
                 <path d="M7.41,8.58L12,13.17L16.59,8.58L18,10L12,16L6,10L7.41,8.58Z" />
               </svg>
             </a>
-            <ul className="p-2">
+            <ul className="p-2 bg-white text-black">
               <li>
                 <a>Submenu 1</a>
               </li>
@@ -105,9 +125,9 @@ const Navbar = () => {
           </li>
         </ul>
       </div>
-      <div className="navbar-end">
+      {/* <div className="navbar-end">
         <a className="btn">Get started</a>
-      </div>
+      </div> */}
     </div>
   );
 };

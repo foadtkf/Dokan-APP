@@ -1,3 +1,4 @@
+import Head from "next/head";
 import { useRouter } from "next/router";
 
 const Shop = () => {
@@ -6,6 +7,9 @@ const Shop = () => {
 
   return (
     <div className="py-[10%]  px-[5%]">
+      <Head>
+        <title>Dokan:: {shop}</title>
+      </Head>
       <h1 className="text-2xl md:text-8xl pb-[5%]">
         Shop Name:
         <a className="text-blue-700 ml-2">{shop}</a>

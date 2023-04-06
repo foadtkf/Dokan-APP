@@ -4,6 +4,7 @@ import styles from "../styles/Home.module.css";
 import SwiperSection from "./home/swiper";
 // import Footer from "./shared/footer";
 import { useRouter } from "next/router";
+import Shops from "./home/shops";
 
 export default function Home() {
   const navigate = useRouter();
@@ -15,6 +16,11 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <SwiperSection />
+      <h1 className="text-2xl md:text-9xl text-center mb-[5%]" id="test">
+        Shop
+        <a className="text-blue-700 ml-2">Portion</a>
+      </h1>
+      <Shops />
       <main className={styles.main}>
         <h1 className="text-2xl md:text-9xl" id="test">
           Category
@@ -23,28 +29,28 @@ export default function Home() {
 
         <div className={styles.grid}>
           <div
-            onClick={() => navigate.push(`./categories/${"category1"}`)}
+            onClick={() => navigate.push(`./shops/${"shop1"}`)}
             className={`cursor-pointer ${styles.card}`}
           >
             <h2>Category 1 &rarr;</h2>
             <p>Find in-depth information about Next.js features and API.</p>
           </div>
           <div
-            onClick={() => navigate.push(`./categories/${"category2"}`)}
+            onClick={() => navigate.push(`./shops/${"shop2"}`)}
             className={`cursor-pointer ${styles.card}`}
           >
             <h2>Category 2 &rarr;</h2>
             <p>Find in-depth information about Next.js features and API.</p>
           </div>
           <div
-            onClick={() => navigate.push(`./categories/${"category3"}`)}
+            onClick={() => navigate.push(`./shops/${"shop3"}`)}
             className={`cursor-pointer ${styles.card}`}
           >
             <h2>Category 3 &rarr;</h2>
             <p>Find in-depth information about Next.js features and API.</p>
           </div>
           <div
-            onClick={() => navigate.push(`./categories/${"category4"}`)}
+            onClick={() => navigate.push(`./shops/${"shop4"}`)}
             className={`cursor-pointer ${styles.card}`}
           >
             <h2>Category 4 &rarr;</h2>
